@@ -12,3 +12,8 @@ $ python pig-dice-game.py
  - Preserve points earned on that turn when stopped
  - The first player (or computer) to score 50 points wins.
  - The computer's game progression algorithm applies a rule that unconditionally rolls at least one integer.
+
+## Newly added
+ - 2 levels available (Easy and Normal)
+ - Computer will now choose either to roll or bank upon it own probability model.
+ - 
