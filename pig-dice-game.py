@@ -8,11 +8,27 @@ def select_level():
     if level == 1:
         easy_mode()
     elif level == 2:
-        print("Not yet, Wait plz")
+        normal_mode()
     elif level == 3:
         print("Not yet, wait plz")
     else:
         print("You can input only 1,2,3")
+
+def normal_mode():
+    u_score = 0
+    c_score = 0
+    while u_score < 100 and c_score < 100:
+
+        print(f"user score:{u_score}\ncomputer score:{c_score}")
+        u_score += user_play()
+
+        print(f"user score:{u_score}\ncomputer score:{c_score}")
+        c_score += n_computer_play()
+    
+    if u_score > c_score:
+        print("Player Win")
+    else:
+        print("Computer is winner")
 
 def easy_mode():
     u_score = 0
@@ -74,13 +90,22 @@ def e_computer_play():
         break
   return turn_value
 
-    
-def do_br(point_box: int):
+def n_computer_play()-> int:
     is_play = True
-    print(f"point box: {point_box}")
-    rb = input("R or B: ")
-    dice_value = roll_dice()
+    point_box = 0
+    dice_value = 0
+    br = 'r'
+    while is_play == True:
+        print(f"computer point box: {point_box}")
+        dice_value, point_box, is_play = do_br(br, point_box)
+        br = 'b'
+    print(f"computer point box: {point_box}")
+    # in the end, return value is point
+    return point_box
 
+def do_br(rb: str,point_box: int):
+    is_play = True
+    dice_value = roll_dice()
 
     if rb == 'b':
         # if select bank, get out of while
@@ -105,7 +130,9 @@ def user_play()->int:
 
     while is_play == True:
         
-        dice_value, point_box, is_play = do_br(point_box)
+        print(f"point box: {point_box}")
+        rb = input("R or B: ")
+        dice_value, point_box, is_play = do_br(rb, point_box)
     print(f"point box: {point_box}")
     # in the end, return value is point
     return point_box
