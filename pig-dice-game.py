@@ -1,8 +1,29 @@
 from random import randint, choice
 import random
 
+def welcome():
+    print("*" * 70)
+    print("Welcome to Pig Dice Game!" .center(70))
+    print("*" * 70)
+    print("The objective is to be the first to reach 50 points." .center(70))
+    print("On each turn, the player will roll a die." .center(70))
+    print("The roll value will stored in a point box." .center(70))
+    print("(If the die value is 1, the player earns no points," .center(70))
+    print("and the turn goes to the next player.)" .center(70))
+    print("A human player has an option to either roll again," .center(70))
+    print("or hold. If you hold, the score in the" .center(70))
+    print("point box will be added to your total score." .center(70))
+    print(" The higher the level of difficulty, " .center(70, "*"))
+    print(" the smarter the computer becomes.  " .center(70, "*"))
+    print(" Choose wisely... " .center(70, "*"))
+    print(" Good luck! " .center(70, "*"))
+    print(" and Remember " .center(70, "*"))
+    print()
+    print(" Team ggulggul... " .center(70, "*"))
+    print()
 
 def select_level():
+    welcome()
     print("1: EASY\n2: NORMAL\n3: HARD")
     level = int(input("Input the level:"))
     if level == 1:
@@ -17,7 +38,7 @@ def select_level():
 def easy_mode():
     u_score = 0
     c_score = 0
-    while u_score < 100 and c_score < 100:
+    while u_score < 50 and c_score < 50:
 
         print(f"user score:{u_score}\ncomputer score:{c_score}")
         u_score += user_play()
@@ -42,6 +63,9 @@ def e_computer_play():
   dice_value = 0
 
   while cpu <3:
+    print("***********************")
+    print("***********************")
+    print("***********************")
     print("CPU's turn")
     dice_value = roll_dice()
     turn_value += dice_value
@@ -50,6 +74,8 @@ def e_computer_play():
     if dice_value == 1:
       print("Turn score reset to 0")
       print(turn_value)
+      print("***********************")
+      print("***********************")
       print("***********************")
       print("Player's turn")
       return turn_value
@@ -64,11 +90,15 @@ def e_computer_play():
         print("CPU rolled", dice_value)
         print("CPU's final value is ", turn_value)
         print("***********************")
+        print("***********************")
+        print("***********************")
         print("Player's turn")
         break
       else:
         print("CPU chose to hold")
         print("CPU's final value is ", turn_value)
+        print("***********************")
+        print("***********************")
         print("***********************")
         print("Player's turn")
         break
@@ -104,10 +134,10 @@ def user_play()->int:
     dice_value = 0
 
     while is_play == True:
-        
+        print("***********************")    
         dice_value, point_box, is_play = do_br(point_box)
-    print(f"point box: {point_box}")
-    # in the end, return value is point
+        print(f"point box: {point_box}")
+        # in the end, return value is point
     return point_box
 
 if __name__ == '__main__':
