@@ -1,12 +1,34 @@
-from random import randint
-
+from random import randint, choice
+import random
 
 
 def select_level():
-    pass
+    print("1: EASY\n2: NORMAL\n3: HARD")
+    level = int(input("Input the level:"))
+    if level == 1:
+        easy_mode()
+    elif level == 2:
+        print("Not yet, Wait plz")
+    elif level == 3:
+        print("Not yet, wait plz")
+    else:
+        print("You can input only 1,2,3")
 
 def easy_mode():
-    pass
+    u_score = 0
+    c_score = 0
+    while u_score < 100 and c_score < 100:
+
+        print(f"user score:{u_score}\ncomputer score:{c_score}")
+        u_score += user_play()
+
+        print(f"user score:{u_score}\ncomputer score:{c_score}")
+        c_score += e_computer_play()
+    
+    if u_score > c_score:
+        print("Player Win")
+    else:
+        print("Computer is winner")
 
 def roll_dice():
     roll_dice = randint(1,6)
@@ -91,7 +113,6 @@ def user_play()->int:
 if __name__ == '__main__':
     print("start")
     select_level()
-    user_play()
 
 
 
